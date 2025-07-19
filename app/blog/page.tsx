@@ -269,7 +269,7 @@ export default function BlogPage() {
     let lastModified = 0;
     let cleanupWatcher: ReturnType<typeof setInterval> | null = null;
 
-    // 轮询方案
+    // 使用轮询方案
     function setupPolling() {
       const pollInterval = 3600000; // 60分钟
 
