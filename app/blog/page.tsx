@@ -271,7 +271,7 @@ export default function BlogPage() {
 
     // 使用轮询方案
     function setupPolling() {
-      const pollInterval = 3600000; // 60分钟
+      const pollInterval = 30000; // 30秒
 
       const checkForUpdates = async () => {
         try {
