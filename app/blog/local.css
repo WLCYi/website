@@ -1,0 +1,553 @@
+/* 博客侧边区样式 */
+.博客侧边区{
+  position: fixed;
+  top: 100px;
+  left: 10px;
+  width: 200px;
+  height: 450px;
+  backdrop-filter: blur(8px) saturate(180%);
+  -webkit-backdrop-filter: blur(8px) saturate(180%);
+  background-color: rgba(255,255,255,0.70);
+  border: 1px solid rgba(209, 213, 219, 0.3);
+  border-radius: 20px;
+  z-index: 998;
+}
+
+.头像-img{
+  position: relative;
+  top: 5px;
+  left: 50%;/* 元素左边缘居中 */
+  transform: translateX(-50%);/* 元素向左移动自身宽度的一半 */
+  width: 70px;
+  height: 70px;
+  border-radius: 15px;
+  overflow:hidden;/* 超出元素范围的内容隐藏 */
+  box-shadow: 0.2em 0.2em 0.2em #00000022;
+}
+
+.昵称{
+  position: relative;
+  top: 8px;
+  font-size: 10px;
+  font-weight: 700;
+  text-align: center;
+  color: #66CCFF;
+  background: transparent;
+}
+
+.个人简介{
+  position: relative;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 50px;
+  width: 70%;
+}
+
+.个人简介-text{
+  position: relative;
+  top: 8px;
+  text-align: center;
+  color: #1e84ea;
+}
+
+.博客统计{
+  position: relative;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 50px;
+  width: 70%;
+  border-width: 2px;
+  border-right: none;
+  border-left: none;
+  border-color: rgb(0, 0, 0,0.1);
+  text-align: left;
+  color: #66CCFF;
+}
+.博客统计 p{
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3.7em;
+  height: auto;
+  border-width: 2px;
+  border-bottom: none;
+  border-left: none;
+  border-top: none;
+  border-color: rgba(0, 0, 0,0.1);
+  font-size: 0.5em;
+}
+
+.博客统计 .今日访问{
+  position:absolute;
+  left: 3.5em;
+  top: 0.9em;
+  width: auto;
+  height: auto;
+  font-size: 10px;
+}
+
+.博客统计 .总访问量{
+  position:absolute;
+  left: 3.5em;
+  top: 2.5em;
+  width: auto;
+  height: auto;
+  font-size: 10px;
+}
+
+.博客分类{
+  position: relative;
+  top: 20px;
+  background: transparent;
+}
+
+.博客分类 ul{
+  position: relative;
+  margin-left: 35%;
+}
+
+.博客分类 ul li {
+  position: relative;
+}
+
+.博客分类 ul li::before {
+  content: '';
+  position: absolute;
+  left: -30px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  background-image: url('/iconts/icons-分类.png');
+  background-size: cover;
+}
+
+
+.博客分类 ul li button{
+  color: #dfc6f0;
+  line-height: 40px;
+  display: inline-block;
+  width: auto;
+  padding: 0 15px;
+  white-space: nowrap;
+}
+
+.博客分类 ul li:nth-child(1) button.active {
+  color: #f90606;
+}
+
+.博客分类 ul li:nth-child(3) button.active {
+  color: #66CCFF;
+}
+
+.博客分类 ul li:nth-child(5) button.active {
+  color: #089b43;
+}
+
+.博客分类 ul li:nth-child(7) button.active {
+  color: #a83de6;
+}
+
+.博客分类 ul .博客分类-box{
+  position: relative;
+  left: 0;
+  height: 5px;
+  border-radius: 2px;
+  background-color: transparent;
+  transition: all 0.3s ease;
+  opacity: 1;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  display: block;
+  width: 0;
+  overflow: hidden;
+}
+
+.博客分类 ul li:hover + .博客分类-box,
+.博客分类 ul li:active + .博客分类-box {
+  width: 100%;
+  width: fit-content;
+  min-width: 40px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  to {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+.博客分类 ul li:nth-child(1):hover + .博客分类-box,
+.博客分类 ul li:nth-child(1):active + .博客分类-box {
+  background-color: #f90606;
+}
+
+.博客分类 ul li:nth-child(3):hover + .博客分类-box,
+.博客分类 ul li:nth-child(3):active + .博客分类-box {
+  background-color: #66CCFF;
+}
+
+.博客分类 ul li:nth-child(5):hover + .博客分类-box,
+.博客分类 ul li:nth-child(5):active + .博客分类-box {
+  background-color: #089b43;
+}
+
+.博客分类 ul li:nth-child(7):hover + .博客分类-box,
+.博客分类 ul li:nth-child(7):active + .博客分类-box {
+  background-color: #a83de6;
+}
+
+.搜索栏{
+position: relative;
+top: 40px;
+left: 50%;
+transform: translateX(-50%);
+height: 30px;
+width: 80%;
+display: flex;
+justify-content: left;
+align-items: center;
+/* border: 2px solid #66CCFF; */
+border-radius: 20px;
+background: #66CCFF;
+overflow:hidden;
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+box-shadow: 0.3em 0.3em 0.3em #00000033;
+}
+
+.搜索框{
+  width: 76%;
+  padding: 0 10px;
+  margin-left: 4px;
+  border-radius: 20px;
+  border: none;
+  outline: none; 
+  background: rgb(255, 255, 255,0.9);
+}
+
+.搜索图标{
+  height: auto;
+  width: 18%;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 1px;
+  padding: 0;
+  transition: background 0.1s ease;
+}
+
+.搜索图标:active {
+  background: rgb(170, 190, 255);
+}
+
+.搜索图标 img{
+  height: 24px;
+  width: auto;
+}
+
+/* 内容区自适应布局 */ 
+.div-box{
+  margin-left: 230px; /* 个人简介宽度 + 间距 */
+  width: 887px;
+  height: auto;
+  background: transparent;
+  overflow-y: auto; /* 允许垂直滚动 */
+}
+
+.文章块 {
+  margin: 10px 0;
+  width: 100%;
+  height: auto;
+  text-align: center;
+  backdrop-filter: blur(8px) saturate(180%);
+  -webkit-backdrop-filter: blur(8px) saturate(180%);
+  background-color: rgba(255,255,255,0.70);
+  border: 1px solid rgba(209, 213, 219, 0.3);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.跳转列表与详情{
+  position: absolute;
+  margin-top: 1em;
+  margin-left: 105.5em;
+  border-radius: 10px;
+  background: #fff;
+  color: #66CCFF;
+  box-shadow:  7px 7px 9px #66ccff22, -7px -7px 9px #66ccff22;
+  width: 4em;
+  height: 4em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.5em;
+  text-align: center;
+  z-index: 999;
+}
+
+.跳转列表与详情{
+  transition: color 0.3s ease;
+}
+
+.跳转列表与详情:hover {
+  background:#66CCFF;
+  color: #fff;
+}
+
+.文章块 h1{
+  position: relative;
+  width: 100%;
+  height: 45px;
+  margin: 10px 0px;
+  font-size: 30px;
+}
+
+.文章块 header{
+  position: relative;
+  margin-bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  height: 15px;
+  display: flex;
+  align-items: center;
+  font-size: 10px;
+}
+.图标{
+  position: relative;
+  width: 15px;
+  height: 15px;
+  margin: 0px 5px;
+}
+
+header time{
+  position: relative;
+  color: #95aef4;
+
+}
+
+header .文章分类{
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-width: 2px;
+  border-top: none;
+  border-bottom: none;
+  border-right: none;
+  border-color: #86a2ef;
+  color: #95aef4;
+  margin: 0px 5px;
+}
+
+header .文章点击数{
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-width: 2px;
+  border-top: none;
+  border-bottom: none;
+  border-right: none;
+  border-color: #86a2ef;
+  color: #95aef4;
+  margin: 0px 5px;
+}
+
+header .文章评论数{
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-width: 2px;
+  border-top: none;
+  border-bottom: none;
+  border-right: none;
+  border-color: #86a2ef;
+  color: #95aef4;
+  margin: 0px 5px;
+}
+
+.文章前言{
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: left;
+  width: 95%;
+  height: auto;
+  padding-left: 1em;
+}
+
+.文章内容{
+  position: relative;
+  top: 1em;
+  margin-bottom: 2em;
+  padding: 2em 2.5em;
+  height: auto;
+  text-align: left;
+}
+
+.文章标签{
+  position: relative;
+  left: 20px;
+  height: 30px;
+  margin: 15px;
+  width: auto;
+  display: flex;
+  align-items: center;
+
+}
+
+.tag-item {
+  margin-left: 10px;
+  padding: 4px 10px; /* 内部填充 */
+  border: 1px solid #86a2ef; /* 边框 */
+  border-radius: 4px; /* 圆角 */
+  background-color: #fafafa; /* 背景颜色 */
+  color: #95aef4; /* 文字颜色 */
+  font-size: 0.9em; /* 字体大小 */
+  white-space: nowrap; /* 防止标签内容换行 */
+  cursor: default; /* 鼠标样式 */
+}
+
+/* 如果你希望鼠标悬停时有效果，可以添加： */
+.tag-item:hover {
+    background-color: #95aef4;
+    border-color: #95aef4;
+    color: #fff;
+}
+
+/* 评论区域样式 */
+.评论区域 {
+  margin: 20px 0;
+  padding: 0 20px;
+}
+
+.评论按钮 {
+  background: #66CCFF;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.评论按钮:hover {
+  background: #4da6ff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.评论列表 {
+  margin-top: 20px;
+}
+
+.评论项 {
+  background: rgba(255,255,255,0.8);
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.评论头 {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 12px;
+}
+
+.评论昵称 {
+  font-weight: bold;
+  color: #66CCFF;
+}
+
+.评论时间 {
+  color: #999;
+}
+
+.评论内容 {
+  text-align: left;
+  line-height: 1.5;
+}
+
+/* 评论弹窗样式 */
+.评论弹窗 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.弹窗内容 {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 500px;
+}
+
+.弹窗内容 h3 {
+  margin-top: 0;
+  color: #66CCFF;
+}
+
+.弹窗内容 input,
+.弹窗内容 textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.弹窗内容 textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+.弹窗按钮 {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.弹窗按钮 button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.弹窗按钮 button:first-child {
+  background: #66CCFF;
+  color: white;
+}
+
+.弹窗按钮 button:last-child {
+  background: #f0f0f0;
+  color: #666;
+}
+
+.无评论提示 {
+  text-align: center;
+  color: #999;
+  padding: 20px;
+  font-size: 14px;
+}

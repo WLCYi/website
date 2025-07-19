@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Geist+Mono:wght@100..700&display=swap');
+@import "tailwindcss";
+
+:root {
+  --font-geist-sans: 'Geist', sans-serif;
+  --font-geist-mono: 'Geist Mono', monospace;
+}
+
+:root {
+  --background: #deebf8;
+  --foreground: #171717;
+  --tianyi-blue: #66CCFF;
+  --tianyi-blue-dark: #3399CC;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  /* background: var(--background); */
+  background-image: linear-gradient(25deg, #66ccff, #bbb1f086, var(--background), #f2f6f9);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* 粒子动画背景 */
+.particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.particle {
+  position: absolute;
+  background: var(--tianyi-blue);
+  border-radius: 50%;
+  opacity: 0.3;
+  animation: float 15s infinite linear;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-100vh) rotate(360deg);
+    opacity: 0.3;
+  }
+}
+
+/* 卡片悬停效果 */
+.card-hover {
+  transition: all 0.3s ease;
+  transform: translateY(0);
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(102, 204, 255, 0.3);
+}
+
+/* 页面过渡动画 */
+.page-transition {
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 标题按钮样式 */
+.标题按钮{
+  border: none;
+  width: 6em;
+  height: 2em;
+  
+  display: block;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.标题按钮 span{
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0.2em 2.0em;
+  width: 100%;
+  height: 100%;
+  background: #66CCFF;
+  z-index: -1;
+  border: 5px solid white;
+}
+
+.标题按钮 span::before{
+  content: '';
+  position: absolute;
+  width: 8%;
+  height: 400%;
+  background: #66CCFF;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%) rotate(-60deg);
+  transition: all .3s;
+}
+
+.标题按钮:hover span::before,.标题按钮:focus span::before{
+  transform: translate(-50%,-50%) rotate(-90deg);
+  width: 100%;
+  background: white;
+}
+
+.标题按钮:hover,.标题按钮:focus{
+  color: #66CCFF;
+}
+
+/* 跟踪导航栏样式 */
+.跟踪导航栏 ul {
+  position: relative;
+  border: none;
+  border-radius: 10em;
+  display: flex;
+  list-style: none;
+  background: #f5f5f5;
+  box-shadow: 0.8em 1.6em 1.6em #00000033;
+  padding: 0.5em;
+  font-size: 0.5rem; /* 基础字体大小为0.5rem(8px) */
+  line-height: 1; /* 确保行高不影响高度计算 */
+}
+
+/* 导航栏链接样式 */
+.跟踪导航栏 ul li a {
+  position: relative;
+  padding: 0.6rem 2rem;
+  font: 500 1.5em '黑体';
+  color: rgb(70, 100, 180);
+  display: block;
+  text-decoration: none;
+  z-index: 3;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+/* 滑动指示器样式 */
+.跟踪导航栏 ul li:first-of-type {
+  background-color: rgb(170, 190, 255);
+  height: 4.1em; /* 基于字体大小 */
+  z-index: 2;
+}
+
+.跟踪导航栏 ul li:nth-of-type(2) {
+  background-color: rgba(170, 190, 255, 0.5);
+  height: 4.1em; /* 基于字体大小 */
+  z-index: 1;
+  box-shadow: inset 0 0 20px #ffffffaa;
+}
+
+/* 挤压动画 */
+.squeeze {
+  transform: scale(0.9);
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1.05);
+}
+
+/* 主容器样式 */
+.main-container {
+  position: relative;
+  padding: 20px;
+  min-height: calc(500px + 40px); /* 手风琴高度 + 间距 */
+}
+
+
+/* 手风琴内容区样式 */
+.button-page{
+  width: 99%;
+  height: 500px;
+  display: flex;
+  position: absolute;
+  right: 5px;
+  /* background: #d80909; */
+}
+
+.box{
+  flex: 1;
+  overflow: hidden;
+  transition: .5s;
+  margin: 0 20px;
+  box-shadow: 10px 10px 20px rgb(0, 0, 0, .5);
+  border-radius: 20px;
+  border: 10px solid #ffffff;
+  /* background-color: #cfdadf; */
+}
+
+/* 兄弟组件样式 */
+.sibling-page {
+  width: 100%;
+  height: 1000px;
+  padding: 20px;
+  background-color: transparent;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  color: var(--foreground);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+  margin-top: 520px; /* 手风琴高度 + 间距 */
+}
+
+.sibling-page h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--tianyi-blue);
+}
+
+.sibling-page p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+.box>img{
+  width: 200%;
+  height: 85%;
+  object-fit: contain;
+  transition: .5s;
+}
+.box>span{
+  font: 200 25px '黑体';
+  text-align: center;
+  height: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.box:hover{
+  flex-basis: 40%;
+}
+.box:hover>img{
+  width: 100%;
+  height: 100%;
+}

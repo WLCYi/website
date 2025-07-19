@@ -1,0 +1,29 @@
+{
+  "name": "website",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "bcryptjs": "^3.0.2",
+    "next": "15.3.3",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "swiper": "^11.2.8"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/jquery": "^3.5.32",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "tailwindcss": "^4",
+    "tsx": "^4.19.4",
+    "typescript": "^5"
+  }
+}

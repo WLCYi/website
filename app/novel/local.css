@@ -1,0 +1,84 @@
+/* 小说底边区栏样式 */
+.小说底边区{
+  position: fixed;
+  top: calc(100vh - 60px);
+  left: 0;
+  width: 100%;
+  height: 60px;
+  padding: 10px;
+  background: transparent;
+  z-index: 998;
+}
+
+/* 小说底边导航栏样式 */
+.小说底边导航栏{
+  position:relative;
+  width: 700px;
+  height: 40px;
+  transform: translateX(30%);
+  box-shadow: 0 5px 20px rgb(0, 0, 0,0.5);
+  border-radius: 10px;
+  background-color: #fff;
+  z-index: 999;
+}
+
+.小说底边导航栏 ul{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  right: 5%;
+}
+
+.小说底边导航栏 ul .小说底边导航栏-box{
+  position: absolute;
+  bottom: 0;
+  left: 50px;
+  width: calc((100%/6)*0.5);
+  height: 5px;
+  border-radius: 2px;
+  transition: .5s;
+}
+
+.小说底边导航栏 ul li{
+  width: 100%;
+  text-align: center;
+}
+
+.小说底边导航栏 ul li button{
+  color: #1e84ea;
+  display: block;
+  width: 100%;
+  height: 100%;
+  line-height: 70px;
+}
+
+.小说底边导航栏 ul li:nth-child(1):hover~.小说底边导航栏-box{
+  left: calc(100%/6*0.25);
+  background-color: #f90606;
+}
+
+.小说底边导航栏 ul li:nth-child(2):hover~.小说底边导航栏-box{
+  left: calc(100%/6*1.25);
+  background-color: #66CCFF;
+}
+
+.小说底边导航栏 ul li:nth-child(3):hover~.小说底边导航栏-box{
+  left: calc(100%/6*2.25);
+  background-color: #3914df;
+}
+
+.小说底边导航栏 ul li:nth-child(4):hover~.小说底边导航栏-box{
+  left: calc(100%/6*3.25);
+  background-color: #ea25cd;
+}
+
+.小说底边导航栏 ul li:nth-child(5):hover~.小说底边导航栏-box{
+  left: calc(100%/6*4.25);
+  background-color: #f04c1f;
+}
+
+.小说底边导航栏 ul li:nth-child(6):hover~.小说底边导航栏-box{
+  left: calc(100%/6*5.25);
+  background-color: #710303;
+}

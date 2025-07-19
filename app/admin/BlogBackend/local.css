@@ -1,0 +1,202 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 2rem;
+  border: 10px solid rgba(221, 222, 225, 0.3);
+  border-radius: 10px;
+  width: 80%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+  
+}
+
+.modal-content h3 {
+    margin-top: 0;
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.modal-content p {
+    margin-bottom: 25px;
+    font-size: 1em;
+    line-height: 1.5;
+}
+
+
+
+
+
+.modal-content::-webkit-scrollbar {
+  width: 10px;
+  background-color: #c3c0c0;
+  border-radius: 5px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 5px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
+.modal-row {
+  margin-bottom: 1rem;
+}
+
+.modal-row input[type="text"],
+.modal-row select,
+.modal-row textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+.date{
+  margin: 14px;
+}
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.modal-actions button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+
+.modal-actions button:first-child { /* 取消按钮 */
+    background-color: #ccc;
+    color: #333;
+}
+
+.modal-actions button:first-child:hover {
+    background-color: #bbb;
+}
+
+.modal-actions .save-btn { /* 确定/保存按钮 */
+    background-color: #007bff; /* 蓝色 */
+    color: white;
+}
+
+.modal-actions .save-btn:hover {
+    background-color: #0056b3;
+}
+
+/* 清除按钮的额外样式 */
+.stat-card.clear-button {
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    border: 1px solid #ff4d4f; /* 红色边框 */
+}
+
+.stat-card.clear-button h4 {
+    color: #ff4d4f; /* 红色文字 */
+}
+
+.stat-card.clear-button:hover {
+    background-color: #ffe8e6; /* 浅红色背景 */
+    transform: translateY(-2px);
+}
+
+.post-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.post-info {
+  flex: 1;
+}
+
+.post-date {
+  color: #666;
+  font-size: 0.9rem;
+  margin-right: 1rem;
+}
+
+.post-tags {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.tag {
+  background-color: #f0f0f0;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+.post-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.post-actions button {
+  padding: 0.3rem 0.6rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.post-actions .publish-btn {
+  background-color: #28a745;
+  color: white;
+}
+
+.post-actions .unpublish-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+.post-actions button:nth-child(2) {
+  background-color: #ffc107;
+  color: black;
+}
+
+.post-actions button:last-child {
+  background-color: #dc3545;
+  color: white;
+}
+
+.editor-content {
+  min-height: 200px;
+  border: 1px solid #ddd;
+  padding: 0.5rem;
+  border-radius: 0 0 4px 4px;
+  margin-top: -1px;
+}
+
+.editor-content:focus {
+  outline: none;
+  border-color: #0070f3;
+}
+
+.editor-content:empty:before {
+  content: attr(data-placeholder);
+  color: #999;
+}
