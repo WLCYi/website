@@ -5,13 +5,28 @@ import fs from 'fs/promises'; // 修改点：改为 fs/promises 进行异步文�
 import path from 'path';
 import type { Post, Comment, DailyBlogView, DailyArticleView } from '../../utils/db';
 
+/**
+ * 格式化日期为中文格式 (yyyy-MM-dd HH:mm:ss)
+ * @param date 要格式化的日期对象
+ * @returns 格式化后的日期字符串
+ */
+function formatZhDate(date: Date): string {
+    return date.toLocaleString('zh-CN', {
+        year: 'numeric', 
+        month: '2-digit', 
+        day: '2-digit',
+        hour: '2-digit', 
+        minute: '2-digit', 
+        second: '2-digit', 
+        hour12: false
+    }).replace(/\//g, '-').replace(/\s+/g, ' ');
+}
+
 // 定义数据库文件的路径
 const DB_PATH = path.join(process.cwd(), 'db/blog.json');
 
-// 新增：内存缓存变量和锁
+// 内存缓存变量
 let dbCache: any = null; // 用于存储数据库的内存缓存
-let isWriting = false;   // 写入锁，防止并发写入导致数据损坏
-let writeQueue: (() => Promise<void>)[] = []; // 写入队列
 
 /**
  * 异步读取数据库文件。
@@ -144,10 +159,7 @@ export async function POST(request: NextRequest) {
                 views: 0,
                 comments: 0,
                 published: false,
-                date: new Date().toLocaleString('zh-CN', {
-                    year: 'numeric', month: '2-digit', day: '2-digit',
-                    hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false
-                }).replace(/\//g, '-').replace(/\s+/g, ' ')
+                date: formatZhDate(new Date())
             };
             db.posts.push(newPost);
             await writeDBAsync(db); // 修改点：使用异步写入
@@ -278,10 +290,7 @@ export async function POST(request: NextRequest) {
                 postId,
                 nickname,
                 content,
-                date: new Date().toLocaleString('zh-CN', {
-                    year: 'numeric', month: '2-digit', day: '2-digit',
-                    hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false
-                }).replace(/\//g, '-').replace(/\s+/g, ' '),
+                date: formatZhDate(new Date()),
             };
             db.comments.push(newComment);
 
